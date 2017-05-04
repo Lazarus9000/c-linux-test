@@ -1,4 +1,5 @@
 #include "minunit.h"
+#include "sample.c"
 
 static int foo = 0;
 static int bar = 0;
@@ -12,6 +13,14 @@ void test_setup() {
 
 void test_teardown() {
 	/* Nothing */
+}
+
+MU_TEST(addition_check) {
+	mu_check(foo+bar == addition(foo,bar));
+}
+
+MU_TEST(mandel_check) {
+	mu_check(1 == mandel(0.0,0.0));	
 }
 
 MU_TEST(test_check) {
@@ -62,7 +71,7 @@ MU_TEST(test_string_eq_fail){
 MU_TEST_SUITE(test_suite) {
 	MU_SUITE_CONFIGURE(&test_setup, &test_teardown);
 
-	MU_RUN_TEST(test_check);
+	/*MU_RUN_TEST(test_check);
 	MU_RUN_TEST(test_assert);
 	MU_RUN_TEST(test_assert_int_eq);
 	MU_RUN_TEST(test_assert_double_eq);
@@ -76,10 +85,17 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_string_eq_fail);
 
 	MU_RUN_TEST(test_fail);
+	*/
+	
+	MU_RUN_TEST(addition_check);
+	
+	MU_RUN_TEST(mandel_check);
+	
 }
 
 int main(int argc, char *argv[]) {
 	MU_RUN_SUITE(test_suite);
+	
 	MU_REPORT();
 	return 0;
 }
