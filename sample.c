@@ -24,8 +24,8 @@ int mandel(float re, float im)
 		iter++;
 		//printf("iteration %d\n", iter);
 	}
-	printf("iteration %d\n", iter);
-	if(iter <= max) {
+	//printf("iteration %d\n", iter);
+	if(iter >= max) {
 		return 1;
 	} else {
 		return 0;
