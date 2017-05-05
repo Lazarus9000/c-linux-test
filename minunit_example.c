@@ -20,7 +20,7 @@ MU_TEST(addition_check) {
 }
 
 MU_TEST(mandel_check) {
-	mu_check(1 == mandel(0.0,0.0));	
+	mu_check(1 == mandel(4.0,0.0));	
 }
 
 MU_TEST(test_check) {
